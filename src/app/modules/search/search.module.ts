@@ -4,9 +4,10 @@ import { CommonModule } from '@angular/common';
 import { SearchRoutingModule } from './search-routing.module';
 import { FormsModule } from '@angular/forms';
 import { SearchComponent } from './search/search.component';
+import { SearchBarComponent } from './../../search/search-bar/search-bar/search-bar.component';
 
 @NgModule({
-  declarations: [SearchComponent],
+  declarations: [SearchComponent, SearchBarComponent],
   imports: [
     CommonModule,
     SearchRoutingModule,

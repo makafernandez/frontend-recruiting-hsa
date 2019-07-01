@@ -1,0 +1,10 @@
+<h1>Github Search</h1>
+
+<div class="search-container">
+	<form>
+		<input type="text" placeholder="Nombre de usuario" name="search" [(ngModel)]="searchTerm">
+		<button type="submit" (click)="onClick(searchTerm)"><i class="material-icons">search</i></button>
+	</form>
+</div>
+
+<router-outlet></router-outlet>

@@ -8,12 +8,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { SharedService } from './services/shared/shared.service';
 import { GitHubAPIService } from './services/github-api/githubAPI.service';
-import { SearchBarComponent } from './search/search-bar/search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    SearchBarComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
