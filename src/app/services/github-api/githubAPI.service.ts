@@ -3,16 +3,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-export interface User {
-  name: string;
-  login: string;
-  avatar: string;
-  email: string;
-  followers: string;
-  repos: string;
-  bio: string;
-}
-
 @Injectable({
   providedIn: 'root'
 })
