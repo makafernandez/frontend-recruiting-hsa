@@ -1,4 +1,4 @@
-import { SearchComponent } from './../../../modules/search/search/search.component';
+import { SearchComponent } from '../search/search.component';
 import { Component, OnInit, Input, Output } from '@angular/core';
 
 @Component({

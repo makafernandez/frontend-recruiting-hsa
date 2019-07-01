@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { GitHubAPIService } from '../../../services/github-api/githubAPI.service';
-import { SearchBarComponent } from './../../../search/search-bar/search-bar/search-bar.component';
+import { SearchBarComponent } from './../search-bar/search-bar.component';
 import { SharedService } from './../../../services/shared/shared.service';
 
 @Component({
