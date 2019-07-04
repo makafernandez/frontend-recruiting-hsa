@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { SharedService } from './services/shared/shared.service';
 import { GitHubAPIService } from './services/github-api/githubAPI.service';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { GitHubAPIService } from './services/github-api/githubAPI.service';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ],
   providers: [SharedService, GitHubAPIService],
   bootstrap: [AppComponent]

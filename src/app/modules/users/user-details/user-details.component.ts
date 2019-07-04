@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GitHubAPIService } from 'src/app/services/github-api/githubAPI.service';
+import { SharedService } from 'src/app/services/shared/shared.service';
 
 @Component({
   selector: 'app-user-details',
@@ -7,10 +7,23 @@ import { GitHubAPIService } from 'src/app/services/github-api/githubAPI.service'
   styleUrls: ['./user-details.component.scss']
 })
 export class UserDetailsComponent implements OnInit {
+  userInfo: any = [];
 
-  constructor(github: GitHubAPIService) { }
+  constructor(private shared: SharedService) {}
 
   ngOnInit() {
+    this.getUserDetails();
+    console.log('USER INFO RETRIEVED', this.userInfo);
   }
 
+  getUserDetails() {
+    this.shared.userInfo.subscribe(
+      response => {
+        this.userInfo = response;
+      },
+      err => {
+        console.log('ERROR:', err);
+      }
+    );
+  }
 }

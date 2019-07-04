@@ -17,7 +17,7 @@ export class GitHubAPIService {
     return headers;
   }
 
-  getUser(username): Observable<any> {
+  getUserDetails(username): Observable<any> {
     return this.http.get(`${this.url}${username}`, { headers: this.generateHeaders() }).pipe(
       take(1));
   }

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { GitHubAPIService } from '../../../services/github-api/githubAPI.service';
-import { SearchBarComponent } from './../search-bar/search-bar.component';
 import { SharedService } from './../../../services/shared/shared.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -12,18 +12,25 @@ import { SharedService } from './../../../services/shared/shared.service';
 export class SearchComponent implements OnInit {
   searchTerm = '';
   user: User;
+  repoList: any = [];
 
-  constructor(private github: GitHubAPIService, private shared: SharedService, fb: FormBuilder) { }
+  constructor(
+    private github: GitHubAPIService,
+    private shared: SharedService,
+    private fb: FormBuilder,
+    private router: Router
+  ) {}
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   onClick(searchTerm: string) {
-    this.search(searchTerm);
+    this.getUserInfo(searchTerm.toLowerCase());
+    this.getRepoList(searchTerm.toLowerCase());
   }
 
-  search(searchTerm: string) {
-    this.github.getUser(searchTerm)
-      .subscribe(response => {
+  getUserInfo(username: string) {
+    this.github.getUserDetails(username).subscribe(
+      response => {
         this.user = {
           name: response.name,
           login: response.login,
@@ -33,14 +40,45 @@ export class SearchComponent implements OnInit {
           repos: response.public_repos,
           bio: response.bio
         };
-        this.shareData(this.user);
-      }, err => {
-        console.log('ERROR:', err);
-      });
+        this.shareDataUser(this.user);
+        // TODO: go to users details
+      },
+      err => {
+        console.log('ERROR:', err.error.message);
+        // TODO: if 404 go to 404.html
+      }
+    );
   }
 
-  shareData(data) {
+  getRepoList(username: string) {
+    this.github.getUserRepos(username).subscribe(
+      response => {
+        this.repoList = response.map(repo => {
+          return {
+            id: repo.id,
+            name: repo.name,
+            description: repo.description ? repo.description : '...',
+            stargazers: repo.stargazers_count
+          };
+        });
+        this.shareDataRepos(this.repoList);
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  }
+
+  shareDataUser(data) {
     this.shared.setDataUser(data);
+  }
+
+  shareDataRepos(data) {
+    this.shared.setDataRepos(data);
+  }
+
+  navigateTo(route: string) {
+    this.router.navigate([route]);
   }
 }
 
@@ -49,7 +87,7 @@ export interface User {
   login: string;
   avatar: string;
   email: string;
-  followers: string;
-  repos: string;
+  followers: number;
+  repos: number;
   bio: string;
 }

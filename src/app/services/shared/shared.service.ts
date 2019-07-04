@@ -5,10 +5,19 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class SharedService {
-  private userInfo = new BehaviorSubject([]);
-  user = this.userInfo.asObservable();
+  private userInfoBehavior = new BehaviorSubject([]);
+  userInfo = this.userInfoBehavior.asObservable();
+
+  private userReposBehavior = new BehaviorSubject([]);
+  userRepos = this.userReposBehavior.asObservable();
 
   setDataUser(userInfo) {
-    this.userInfo.next(userInfo);
+    this.userInfoBehavior.next(userInfo);
+    console.log('SHARED DATA USER', userInfo);
+  }
+
+  setDataRepos(userRepos) {
+    this.userReposBehavior.next(userRepos);
+    console.log('SHARED DATA REPOS', userRepos);
   }
 }

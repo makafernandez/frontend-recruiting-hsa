@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GitHubAPIService } from './../../../services/github-api/githubAPI.service';
+import { SharedService } from 'src/app/services/shared/shared.service';
 
 @Component({
   selector: 'app-user-repos',
@@ -9,26 +9,21 @@ import { GitHubAPIService } from './../../../services/github-api/githubAPI.servi
 export class UserReposComponent implements OnInit {
   repoList: any = [];
 
-  constructor(private github: GitHubAPIService) { }
+  constructor(private shared: SharedService) {}
 
   ngOnInit() {
-    this.getRepoList('makafernandez');
+    this.getRepoList();
+    console.log('USER REPOS RETRIEVED', this.repoList);
   }
 
-  getRepoList(username: string) {
-    this.github.getUserRepos(username)
-      .subscribe(response => {
-        return response.map(repo => {
-          this.repoList.push({
-            id: repo.id,
-            name: repo.name,
-            description: repo.description ? repo.description : '...',
-            stargazers: repo.stargazers_count
-          });
-        });
-        // this.shareData(this.user);
-      }, err => {
-        console.error(err);
-      });
+  getRepoList() {
+    this.shared.userRepos.subscribe(
+      response => {
+        this.repoList = response;
+      },
+      err => {
+        console.log('ERROR:', err);
+      }
+    );
   }
 }
