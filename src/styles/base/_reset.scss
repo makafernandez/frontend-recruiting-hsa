@@ -6,7 +6,6 @@
    * {
     box-sizing: border-box;
   }
-
   ::before,
   ::after {
     box-sizing: inherit;
@@ -20,7 +19,6 @@
    * 2. Prevent adjustments of font size after orientation changes in iOS.
    * 3. Remove gray overlay on links for iOS.
    */
-
   html {
     line-height: 1.15; /* 1 */
     -webkit-text-size-adjust: 100%; /* 2 */
@@ -107,7 +105,6 @@
    * 1. Add the correct box sizing in Firefox.
    * 2. Show the overflow in Edge and IE.
    */
-
   hr {
     box-sizing: content-box; /* 1 */
     height: 0; /* 1 */
@@ -117,12 +114,10 @@
     margin: 0;
     clear: both;
   }
-
   /**
    * 1. Correct the inheritance and scaling of font size in all browsers.
    * 2. Correct the odd `em` font sizing in all browsers.
    */
-
   pre {
     font-family: monospace, monospace; /* 1 */
     font-size: inherit; /* 2 */
@@ -144,12 +139,10 @@
     text-decoration: none;
     color: inherit;
   }
-
   /**
    * 1. Remove the bottom border in Chrome 57-
    * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
    */
-
   abbr[title] {
     border-bottom: none; /* 1 */
     text-decoration: underline; /* 2 */
@@ -164,12 +157,10 @@
   strong {
     font-weight: bolder;
   }
-
   /**
    * 1. Correct the inheritance and scaling of font size in all browsers.
    * 2. Correct the odd `em` font sizing in all browsers.
    */
-
   code,
   kbd,
   samp {
@@ -189,7 +180,6 @@
    * Prevent `sub` and `sup` elements from affecting the line height in
    * all browsers.
    */
-
   sub,
   sup {
     font-size: 75%;
@@ -217,7 +207,6 @@
     border-style: none;
     vertical-align: bottom;
   }
-
   embed,
   object,
   iframe {
@@ -252,23 +241,19 @@
     appearance: none;
     border-radius: 0;
   }
-
   /**
    * Show the overflow in IE.
    * 1. Show the overflow in Edge.
    */
-
   button,
   input {
     /* 1 */
     overflow: visible;
   }
-
   /**
    * Remove the inheritance of text transform in Edge, Firefox, and IE.
    * 1. Remove the inheritance of text transform in Firefox.
    */
-
   button,
   select {
     /* 1 */
@@ -287,7 +272,6 @@
     -webkit-appearance: none;
     appearance: none;
   }
-
   button[disabled],
   [type='button'][disabled],
   [type='reset'][disabled],
@@ -328,14 +312,12 @@
     border: 0;
     min-width: 0;
   }
-
   /**
    * 1. Correct the text wrapping in Edge and IE.
    * 2. Correct the color inheritance from `fieldset` elements in IE.
    * 3. Remove the padding so developers are not caught out when they zero out
    *    `fieldset` elements in all browsers.
    */
-
   legend {
     color: inherit; /* 2 */
     display: table; /* 1 */
@@ -364,7 +346,6 @@
    * 1. Add the correct box sizing in IE 10.
    * 2. Remove the padding in IE 10.
    */
-
   [type='checkbox'],
   [type='radio'] {
     box-sizing: border-box; /* 1 */
@@ -379,12 +360,10 @@
   [type='number']::-webkit-outer-spin-button {
     height: auto;
   }
-
   /**
    * 1. Correct the odd appearance in Chrome and Safari.
    * 2. Correct the outline style in Safari.
    */
-
   [type='search'] {
     -webkit-appearance: textfield; /* 1 */
     outline-offset: -2px; /* 2 */
@@ -402,7 +381,6 @@
    * 1. Correct the inability to style clickable types in iOS and Safari.
    * 2. Change font properties to `inherit` in Safari.
    */
-
   ::-webkit-file-upload-button {
     -webkit-appearance: button; /* 1 */
     font: inherit; /* 2 */
@@ -471,7 +449,6 @@
   th {
     vertical-align: top;
   }
-
   th {
     text-align: left;
     font-weight: bold;
