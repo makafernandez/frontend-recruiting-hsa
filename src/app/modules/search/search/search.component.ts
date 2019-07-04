@@ -13,16 +13,16 @@ export class SearchComponent implements OnInit {
   searchTerm = '';
   user: User;
 
-  constructor(private gitHub: GitHubAPIService, private shared: SharedService, fb: FormBuilder) { }
+  constructor(private github: GitHubAPIService, private shared: SharedService, fb: FormBuilder) { }
 
   ngOnInit() { }
 
-  onClick(searchTerm) {
+  onClick(searchTerm: string) {
     this.search(searchTerm);
   }
 
-  search(searchTerm) {
-    this.gitHub.getUser(searchTerm)
+  search(searchTerm: string) {
+    this.github.getUser(searchTerm)
       .subscribe(response => {
         this.user = {
           name: response.name,
@@ -33,8 +33,9 @@ export class SearchComponent implements OnInit {
           repos: response.public_repos,
           bio: response.bio
         };
-        console.log(this.user);
         this.shareData(this.user);
+      }, err => {
+        console.log('ERROR:', err);
       });
   }
 

@@ -7,12 +7,12 @@ const routes: Routes = [
     loadChildren: () => import('./modules/search/search.module').then(mod => mod.SearchModule)
   },
   {
-    path: 'users',
+    path: 'user',
     loadChildren: () => import('./modules/users/users.module').then(mod => mod.UsersModule)
   },
   {
     path: '',
-    redirectTo: '/search',
+    redirectTo: '/user',
     pathMatch: 'full'
   }
 ];
