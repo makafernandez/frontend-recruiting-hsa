@@ -1,0 +1,9 @@
+<div class="userRepos">
+	<ng-container *ngFor="let repo of repoList">
+		<div class="userRepos--item">
+			<h2>{{repo.name}}</h2>
+			<p class="userRepos--desc">{{repo.description}}</p>
+			<p class="userRepos--stars"><i class="material-icons md-36">star_border</i> {{repo.stargazers}}</p>
+		</div>
+	</ng-container>
+</div>
